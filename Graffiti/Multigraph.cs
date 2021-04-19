@@ -8,5 +8,7 @@ namespace Graffiti
 {
     class Multigraph
     {
+
+
     }
 }
