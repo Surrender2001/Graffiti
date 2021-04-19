@@ -18,6 +18,48 @@ namespace Graffiti
                     n = int.Parse(sr.ReadLine());
                     Console.WriteLine(n);
 
+
+                    //добавил граф с вершинами
+                    var multiGraph = new Multigraph();
+                    for (int i = 1; i < n + 1; i++)
+                    {
+                        multiGraph.AddVertex(i);
+                    }
+
+
+                    //надо реализовать дуги
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] words = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                        //сделать проверку на одиночные вершины
+                        for (int i = 1; i < words.Length; i += 2)
+                        {
+                            multiGraph.AddEdge(int.Parse(words[0]),
+                                int.Parse(words[i]),
+                                int.Parse(words[i + 1]));
+                        }
+                    }
+
+                    multiGraph.Print();
+
+                    Console.WriteLine();
+                    //Добавление вершины
+                    multiGraph.AddVertex(++n);
+
+                    multiGraph.Print();
+
+                    //Console.WriteLine("Список смежности:");
+                    //m = 0;
+                    //for (int i = 1; i < n + 1; i++)
+                    //{
+                    //    (dll, m) = multiGraph.GetVertexList(i);
+                    //    Console.Write($"{i}: {m}-количество исходящих ребер, ");
+                    //    dll.Print();
+                    //    dll.Clear();
+                    //}
+
+
+
                 }
 
             }

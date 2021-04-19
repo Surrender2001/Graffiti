@@ -103,5 +103,23 @@ namespace Graffiti
             }
             return false;
         }
+
+        public void Print()
+        {
+            if (count==0)
+            {
+                Console.WriteLine(" ");
+                return;
+            }
+            Node current = head;
+            while (current!=tail)
+            {
+                Console.Write(current.Data+", ");
+                current = current.Next;
+            }
+            Console.WriteLine(current.Data);
+        }
+
+
     }
 }

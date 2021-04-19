@@ -8,7 +8,52 @@ namespace Graffiti
 {
     class Multigraph
     {
+        List<Edge> Edges = new List<Edge>();
+        DoublyLinkedList Vertexes = new DoublyLinkedList();
+        public int EdgeCount => Edges.Count;
+
+        public void AddEdge(int from, int to, int weight=0)
+        {
+            var edge = new Edge(from, to, weight);
+            Edges.Add(edge);
+        }
+
+        
+        public void Print()
+        {
+            DoublyLinkedList dll = new DoublyLinkedList();
+            int m = 0;
+
+            for (int i = 1; i < Vertexes.Count+1; i++)
+            {
+                (dll, m) = GetVertexList(i);
+                Console.Write($"{i}: {m}-количество исходящих ребер, ");
+                dll.Print();
+                dll.Clear();
+            }
 
 
+        }
+
+        public (DoublyLinkedList,int) GetVertexList(int vertex)
+        {
+            var result = new DoublyLinkedList();
+            int n = 0;
+            foreach (var edge in Edges)
+            {
+                if (edge.From == vertex)
+                {
+                    result.Add(edge.To);
+                    n++;
+                }
+
+            }
+            return (result,n);
+        }
+
+        public void AddVertex(int i)
+        {
+            Vertexes.Add(i);
+        }
     }
 }
