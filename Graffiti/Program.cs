@@ -20,11 +20,8 @@ namespace Graffiti
 
 
                     //добавил граф с вершинами
-                    var multiGraph = new Multigraph();
-                    for (int i = 1; i < n + 1; i++)
-                    {
-                        multiGraph.AddVertex(i);
-                    }
+                    var multiGraph = new Multigraph(n);
+
 
 
                     //надо реализовать дуги
@@ -45,7 +42,12 @@ namespace Graffiti
                     Console.WriteLine();
                     //Добавление вершины
                     multiGraph.AddVertex(++n);
-
+                    multiGraph.Print();
+                    //Добавление дуги
+                    multiGraph.AddEdge(6, 5, 8);
+                    multiGraph.Print();
+                    //Деструктор
+                    multiGraph.Clear();
                     multiGraph.Print();
 
                     //Console.WriteLine("Список смежности:");

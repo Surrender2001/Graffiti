@@ -18,6 +18,13 @@ namespace Graffiti
             Edges.Add(edge);
         }
 
+        public Multigraph(int n)
+        {
+            for (int i = 1; i < n+1; i++)
+            {
+                AddVertex(i);
+            }
+        }
         
         public void Print()
         {
@@ -32,7 +39,7 @@ namespace Graffiti
                 dll.Clear();
             }
 
-
+            Console.WriteLine();
         }
 
         public (DoublyLinkedList,int) GetVertexList(int vertex)
@@ -54,6 +61,12 @@ namespace Graffiti
         public void AddVertex(int i)
         {
             Vertexes.Add(i);
+        }
+
+        public void Clear()
+        {
+            Edges.Clear();
+            Vertexes.Clear();
         }
     }
 }
