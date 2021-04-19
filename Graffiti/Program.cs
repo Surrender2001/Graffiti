@@ -48,11 +48,15 @@ namespace Graffiti
                     multiGraph.Print();
 
                     //Удаление вершины (Success)
-                    multiGraph.RemoveVertex(2);
-                    multiGraph.Print();
+                    //multiGraph.RemoveVertex(2);
+                    //multiGraph.Print();
 
 
-                    //Удаление дуги
+                    //Удаление дуги (Success)
+                    //multiGraph.RemoveEdge(6, 5, 8);
+                    //multiGraph.Print();
+
+                    //DFS
 
 
 
