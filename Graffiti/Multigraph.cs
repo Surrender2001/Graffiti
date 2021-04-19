@@ -55,20 +55,17 @@ namespace Graffiti
             return (result, n);
         }
 
-        public DoublyLinkedList GetVertexList2(int vertex)
+        public List<int> GetVertexList2(int vertex)
         {
-            var result = new DoublyLinkedList();
-            int n = 0;
+            var result = new List<int>();
             foreach (var edge in Edges)
             {
                 if (edge.From == vertex)
-                {
                     result.Add(edge.To);
-                    n++;
-                }
+                
 
             }
-            return (result);
+            return result;
         }
 
         public void AddVertex(int i)
@@ -100,20 +97,21 @@ namespace Graffiti
             bool[] passed = new bool[Vertexes.Count + 1];
             Stack<int> st=new Stack<int>();
             st.Push(vertex);
+            Console.WriteLine("DFS: ");
             while (st.Count != 0)
             {
                 int v = st.Peek();
                 st.Pop();
-                if (!passed[vertex])
+                if (!passed[v])
                 {
                     //Отметили, что прошли
-                    passed[vertex] = true;
+                    passed[v] = true;
+                    Console.Write(v+" ");
                     //Вершины, в которые есть путь
-                    var dll = new DoublyLinkedList();
-                    dll = GetVertexList2(vertex);
                     //Как добавить в стек?
-                    int[] vs;
-
+                    List<int>vs = GetVertexList2(v);
+                    foreach (var i in vs)
+                        st.Push(i);
                 }
             }
 

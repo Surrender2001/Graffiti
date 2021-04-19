@@ -56,8 +56,8 @@ namespace Graffiti
                     //multiGraph.RemoveEdge(6, 5, 8);
                     //multiGraph.Print();
 
-                    //DFS
-
+                    //DFS (Success)
+                    multiGraph.DFS(2);
 
 
                     //Деструктор (Success)
