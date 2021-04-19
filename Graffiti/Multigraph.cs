@@ -63,6 +63,13 @@ namespace Graffiti
             Vertexes.Add(i);
         }
 
+        public void RemoveVertex(int k)
+        {
+
+            Edges.RemoveAll(i => i.From == k || i.To == k);
+            Vertexes.Remove(k);
+        }
+
         public void Clear()
         {
             Edges.Clear();

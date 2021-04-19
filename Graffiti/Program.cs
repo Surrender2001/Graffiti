@@ -19,12 +19,12 @@ namespace Graffiti
                     Console.WriteLine(n);
 
 
-                    //добавил граф с вершинами
+                    //добавил граф с вершинами(Success)
                     var multiGraph = new Multigraph(n);
 
 
 
-                    //надо реализовать дуги
+                    //надо реализовать дуги (Success)
                     while ((line = sr.ReadLine()) != null)
                     {
                         string[] words = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
@@ -40,13 +40,23 @@ namespace Graffiti
                     multiGraph.Print();
 
                     Console.WriteLine();
-                    //Добавление вершины
+                    //Добавление вершины (Success)
                     multiGraph.AddVertex(++n);
                     multiGraph.Print();
-                    //Добавление дуги
+                    //Добавление дуги (Success)
                     multiGraph.AddEdge(6, 5, 8);
                     multiGraph.Print();
-                    //Деструктор
+
+                    //Удаление вершины (Success)
+                    multiGraph.RemoveVertex(2);
+                    multiGraph.Print();
+
+
+                    //Удаление дуги
+
+
+
+                    //Деструктор (Success)
                     multiGraph.Clear();
                     multiGraph.Print();
 
