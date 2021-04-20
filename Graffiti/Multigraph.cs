@@ -5,10 +5,14 @@ namespace Graffiti
 {
     class Multigraph
     {
-        List<Edge> Edges = new List<Edge>();
-        DoublyLinkedList Vertexes = new DoublyLinkedList();
-        public int EdgeCount => Edges.Count;
+        List<Edge> Edges = new List<Edge>();//Список дуг
+        DoublyLinkedList Vertexes = new DoublyLinkedList();//Список смежности
+        public int EdgeCount => Edges.Count;//кол-во дуг
 
+        //Добавить дугу
+        //Формальные параметры:from-от какой вершины ,to- в какую, weight- вес
+        //Входные данные: дуга
+        //Выходные данные: список
         public void AddEdge(int from, int to, int weight = 0)
         {
             var edge = new Edge(from, to, weight);
@@ -23,6 +27,10 @@ namespace Graffiti
             }
         }
 
+        //Вывод
+        //Формальные параметры:пусто
+        //Входные данные: список
+        //Выходные данные: список смежности
         public void Print()
         {
             DoublyLinkedList dll = new DoublyLinkedList();
@@ -39,6 +47,10 @@ namespace Graffiti
             Console.WriteLine();
         }
 
+        //Получить список смежности
+        //Формальные параметры: номер вершины
+        //Входные данные: список
+        //Выходные данные: список смежности
         public (DoublyLinkedList, int) GetVertexList(int vertex)
         {
             var result = new DoublyLinkedList();
@@ -55,6 +67,10 @@ namespace Graffiti
             return (result, n);
         }
 
+        //Получить список смежности
+        //Формальные параметры:пусто
+        //Входные данные: список
+        //Выходные данные: список смежности
         public List<int> GetVertexList2(int vertex)
         {
             var result = new List<int>();
@@ -68,11 +84,19 @@ namespace Graffiti
             return result;
         }
 
+        //Добавить вершину
+        //Формальные параметры:номер вершины
+        //Входные данные: вершина
+        //Выходные данные: список вершин
         public void AddVertex(int i)
         {
             Vertexes.Add(i);
         }
 
+        //Удалить вершину
+        //Формальные параметры:номер вершины
+        //Входные данные: вершина
+        //Выходные данные: список вершин, список дуг
         public void RemoveVertex(int k)
         {
 
@@ -80,18 +104,30 @@ namespace Graffiti
             Vertexes.Remove(k);
         }
 
+        //Удалить дугу
+        //Формальные параметры:from-от какой вершины ,to- в какую, weight- вес
+        //Входные данные: дуга
+        //Выходные данные: список дуг
         public void RemoveEdge(int from, int to, int weight)
         {
             Edges.RemoveAll(i => i.From == from && i.To == to && i.Weight == weight);
 
         }
 
+        //Деструктор
+        //Формальные параметры:пусто
+        //Входные данные: 
+        //Выходные данные: пустой список дуг и список смежности
         public void Clear()
         {
             Edges.Clear();
             Vertexes.Clear();
         }
 
+        //Не рекурсивный обход в глубину
+        //Формальные параметры: vertex- номер вершины
+        //Входные данные: вершина
+        //Выходные данные: список смежности
         public void DFS(int vertex)
         {
             bool[] passed = new bool[Vertexes.Count + 1];

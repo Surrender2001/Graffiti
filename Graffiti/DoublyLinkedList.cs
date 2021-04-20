@@ -13,6 +13,9 @@ namespace Graffiti
         int count;  // количество элементов в списке
 
         // добавление элемента
+        //Формальные параметры: data- ключ
+        //Входные данные:список
+        //Выходные данные: список
         public void Add(int data)
         {
             Node node = new Node(data);
@@ -27,6 +30,10 @@ namespace Graffiti
             tail = node;
             count++;
         }
+        //добавление элемента в начало
+        //Формальные параметры:data- ключ
+        //Входные данные: список
+        //Выходные данные:список
         public void AddFirst(int data)
         {
             Node node = new Node(data);
@@ -40,6 +47,9 @@ namespace Graffiti
             count++;
         }
         // удаление
+        //Формальные параметры:data- ключ
+        //Входные данные: ключ
+        //Выходные данные: список
         public bool Remove(int data)
         {
             Node current = head;
@@ -85,6 +95,10 @@ namespace Graffiti
         public int Count { get { return count; } }
         public bool IsEmpty { get { return count == 0; } }
 
+        //Очистка списка
+        //Формальные параметры:пусто
+        //Входные данные: список
+        //Выходные данные: пустой список
         public void Clear()
         {
             head = null;
@@ -92,6 +106,10 @@ namespace Graffiti
             count = 0;
         }
 
+        //Содержится ли
+        //Формальные параметры:data- ключ
+        //Входные данные: список
+        //Выходные данные: список
         public bool Contains(int data)
         {
             Node current = head;
@@ -104,6 +122,10 @@ namespace Graffiti
             return false;
         }
 
+        //Вывод
+        //Формальные параметры:пусто
+        //Входные данные: список
+        //Выходные данные: список
         public void Print()
         {
             if (count==0)
