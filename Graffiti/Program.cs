@@ -47,6 +47,10 @@ namespace Graffiti
                     multiGraph.AddEdge(6, 5, 8);
                     multiGraph.Print();
 
+
+                    multiGraph.AddEdge(4, 1, 1);
+                    multiGraph.Print();
+
                     //Удаление вершины (Success)
                     //multiGraph.RemoveVertex(2);
                     //multiGraph.Print();
@@ -57,8 +61,13 @@ namespace Graffiti
                     //multiGraph.Print();
 
                     //DFS (Success)
-                    multiGraph.DFS(2);
+                    //multiGraph.DFS(5);
 
+                    //Добавление вершины (Success)
+                    multiGraph.AddVertex(++n);
+                    multiGraph.AddEdge(4, 6, 0);
+                    multiGraph.Print();
+                    multiGraph.DFS(2);
 
                     //Деструктор (Success)
                     multiGraph.Clear();
